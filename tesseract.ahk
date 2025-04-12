@@ -1,5 +1,7 @@
 #Requires AutoHotkey v2.0
 
+TraySetIcon "Shell32.dll", 150
+
 screenshotPath := A_Temp . "\screenshot.png"
 resultPath := A_Temp . "\tesseract_result"
 logFilePath := A_Temp . "\tesseract_log.txt"
@@ -27,11 +29,10 @@ MyMenu.Add("LANG ukr", MenuHandler)
 
 
 ReadText() {  
-    ; Делаем скриншот области 
+    ; Take a screenshot of the area
 	RunWait A_ComSpec " /c snippingtool.exe /clip", , "Hide"
     Sleep 500
     RunWait A_ComSpec " /c magick clipboard: " . screenshotPath, , "Hide"
-    ;Sleep 500
 	; Select Language  or multiple Languages
     MyMenu.Show()	
 }
@@ -62,7 +63,7 @@ MenuHandler(Item, *) {
 	if (FileExist(ResultFileName)) {
 		FileDelete(ResultFileName)
 	}
-	; Распознаем текст с помощью Tesseract ---------------------------------------------------------------------
+	; Try to recognize text using Tesseract ---------------------------------------------------------------------
     Target := " /c tesseract " . screenshotPath . " " . resultPath . " -l " . lang . "  --psm " . psm . preserve .  " > " . logFilePath
 	
 	RunWait A_ComSpec . Target ,  , "Hide" 
