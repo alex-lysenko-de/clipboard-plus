@@ -10,8 +10,11 @@ logFilePath := A_Temp . "\tesseract_log.txt"
 MyMenu := Menu()
 ; Create another menu destined to become a submenu of the above menu.
 SubMenu := Menu()
+SubMenu.Add("PSM-3 auto", MenuHandler)
+SubMenu.Add("PSM-4 single column", MenuHandler)
 SubMenu.Add("PSM-5 single vertical block", MenuHandler)
-SubMenu.Add("PSM-6 preserve spaces", MenuHandler)
+SubMenu.Add("PSM-6 single block", MenuHandler)
+SubMenu.Add("PSM-6p preserve spaces", MenuHandler)
 MyMenu.Add("Default ", MenuHandler)
 MyMenu.Add()
 MyMenu.Add("LANG eng+deu", MenuHandler)
@@ -22,7 +25,7 @@ MyMenu.Add()
 MyMenu.Add("Text alignment", SubMenu)
 MyMenu.Add()
 MyMenu.Add("LANG script\Cyrillic", MenuHandler)
-MyMenu.Add("LANG eng+rus", MenuHandler)
+MyMenu.Add("LANG rus", MenuHandler)
 MyMenu.Add("LANG ukr", MenuHandler)
 
 ; Create a submenu in the first menu (a right-arrow indicator). When the user selects it, the second menu is displayed.
@@ -41,14 +44,14 @@ MenuHandler(Item, *) {
 	; Run tesseract
 	Menu_Cmd := SubStr(Item, 1, 3)
 	; Set default settings
-	lang := "eng+deu+rus"
-	psm := "3"
+	lang := "deu+eng"
+	psm := "4"
 	preserve := " "
 	
 	if "PSM" = Menu_Cmd
 	{ 
 		psm := SubStr(Item, 5, 1)
-		if psm = "6" 
+		if SubStr(Item, 6, 1) = "p"
 		{
 		  preserve := ' -c "preserve_interword_spaces=1" '
 		}	
@@ -58,18 +61,18 @@ MenuHandler(Item, *) {
 	{
 	  lang := SubStr(Item, 6)
 	}
-	; Remove Result file ---------------------------------------------------------------------------------------
+	;-------------------------------------- Remove Result file -----------------------------------------------
 	ResultFileName := resultPath . '.txt'
 	if (FileExist(ResultFileName)) {
 		FileDelete(ResultFileName)
 	}
-	; Try to recognize text using Tesseract ---------------------------------------------------------------------
+	;------------------------------ Try to recognize text using Tesseract -----------------------------------
     Target := " /c tesseract " . screenshotPath . " " . resultPath . " -l " . lang . "  --psm " . psm . preserve .  " > " . logFilePath
 	
 	RunWait A_ComSpec . Target ,  , "Hide" 
     Sleep 1000
 	
-    ; Check results -------------------------------------------------------------------------------------------
+    ;--------------------------------------- Check results --------------------------------------------------
 	if FileExist(ResultFileName) {	
 	    FileEncoding ("UTF-8")
         ResText := FileRead(ResultFileName)
@@ -85,14 +88,59 @@ MenuHandler(Item, *) {
 	}
 }
 
-; Hot key CapsLock + PrnScr --------------------------------------------
+;-------------------------------------- Hot key CapsLock + PrnScr --------------------------------------------
 CapsLock & PrintScreen::
 {
   ReadText()
 }
 
-; Hide program in System Tray ------------------------------------------
+
+
+; ---------------------------------- Secondary Clipboard Implementation ------------------------------------
+SecondaryClipboard := ""
+
+; CapsLock + C — копировать в второй буфер
+CapsLock & c::{
+	global SecondaryClipboard
+	ClipSaved := ClipboardAll()
+    try {        
+        A_Clipboard := ""                    ; очищаем буфер
+        ClipWait(1,1) 		; ждём очистки
+        Send("^c")                           ; копируем		
+        if ClipWait(1,1) {
+            SecondaryClipboard := ClipboardAll()  ; сохраняем текст в переменную
+        } else {
+			SecondaryClipboard := ""
+        }
+    } catch Error as e {
+        MsgBox "Ошибка: " e.Message
+    } finally {
+        A_Clipboard := ClipSaved             ; восстанавливаем оригинальный буфер
+        ClipSaved := ""
+	}
+    return
+}
+
+; CapsLock + V — вставить из второго буфера
+CapsLock & v::{
+	global SecondaryClipboard
+    if SecondaryClipboard != "" {
+        try {
+            ClipSaved := ClipboardAll()      ; сохраняем оригинальный буфер
+            A_Clipboard := SecondaryClipboard
+			Sleep(500)
+            Send("^v")                       ; вставляем
+            ClipWait(1)                      
+            A_Clipboard := ClipSaved         ; восстанавливаем
+            ClipSaved := ""
+        } catch Error as e {
+            MsgBox "Ошибка при вставке: " e.Message
+        }
+    } else {
+        MsgBox "ℹ️ Второй буфер обмена пуст."
+    }
+    return
+}
+
+
 Persistent
-
-
-
