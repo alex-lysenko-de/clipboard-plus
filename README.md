@@ -35,14 +35,16 @@ Make sure the following tools are installed and added to your system's `PATH`:
 1. Clone or download this repository.
 2. Edit the script if needed to adjust languages or PSM modes.
 3. Double-click `tesseract.ahk` (or run with AutoHotkey v2).
+The programm runs minimized in system tray
+You can use Right-click on the tray icon to access the menu and exit the programm
 
 ## Usage
-
-- Right-click on the tray icon to access the menu.
-- Select your preferred OCR mode or language.
+- Press `CapsLock` + `PrnScr`
 - The script will prompt you to select an area via Snipping Tool.
-- OCR will be performed and results saved in a temporary file.
-- Logs are saved to `tesseract_log.txt`.
+- It makes a screenshot and saves it in temp folder
+- Select the language in popup menu
+- OCR will be performed and results saved in system clipboard
+- Press `Ctrl` + `V` to paste the text into Editor
 
 ## Notes
 
