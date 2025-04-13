@@ -1,6 +1,6 @@
 #Requires AutoHotkey v2.0
 
-TraySetIcon "Shell32.dll", 150
+;TraySetIcon "Shell32.dll", 150
 
 screenshotPath := A_Temp . "\screenshot.png"
 resultPath := A_Temp . "\tesseract_result"
