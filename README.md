@@ -38,7 +38,7 @@ Make sure the following tools are installed and added to your system's `PATH`:
 The programm runs minimized in system tray
 You can use Right-click on the tray icon to access the menu and exit the programm
 
-## Usage
+## Usage (see [demo on youtube](https://youtu.be/T33zK0nwCyY))
 - Press `CapsLock` + `PrnScr`
 - The script will prompt you to select an area via Snipping Tool.
 - It makes a screenshot and saves it in temp folder
