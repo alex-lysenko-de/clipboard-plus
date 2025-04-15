@@ -42,7 +42,7 @@ You can use Right-click on the tray icon to access the menu and exit the program
 - Press `CapsLock` + `PrnScr`
 - The script will prompt you to select an area via Snipping Tool.
 - It makes a screenshot and saves it in temp folder
-- Select the language in popup menu
+- Select a type of block and a language in popup menu
 - OCR will be performed and results saved in system clipboard
 - Press `Ctrl` + `V` to paste the text into Editor
 
@@ -54,3 +54,7 @@ You can use Right-click on the tray icon to access the menu and exit the program
 ## License
 
 MIT License. Feel free to modify and share.
+
+## Screenshot
+
+[![Screenshot](img/Screenshot1.png)](https://youtu.be/kWn-IFbZm1k)
