@@ -57,4 +57,4 @@ MIT License. Feel free to modify and share.
 
 ## Screenshot
 
-[![Screenshot](img/Screenshot1.png)](https://youtu.be/kWn-IFbZm1k)
+[![Screenshot](img/Screenshot_1.png)](https://youtu.be/kWn-IFbZm1k)
