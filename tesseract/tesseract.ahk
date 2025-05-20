@@ -4,6 +4,7 @@
 
 screenshotPath := A_Temp . "\screenshot.png"
 resultPath := A_Temp . "\tesseract_result"
+MsgBox(resultPath, "Info")
 logFilePath := A_Temp . "\tesseract_log.txt"
 
 lang := "deu+eng"
@@ -37,10 +38,12 @@ LangMenu.Add("LANG ukr", LangMenuHandler)
 
 ReadText() {  
     ; Take a screenshot of the area
-	RunWait A_ComSpec " /c snippingtool.exe /clip", , "Hide"
-    Sleep 500
-    RunWait A_ComSpec " /c magick clipboard: " . screenshotPath, , "Hide"
-	; Select Language  or multiple Languages
+	; Compose command line
+    command := Format('pythonw "screenshot.py" --screenshotPath "{}"', screenshotPath)
+
+	; Run the Python script
+	RunWait(command)
+
 	BlockMenu.Show()
     	
 }
