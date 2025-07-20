@@ -6,9 +6,9 @@ Scripts that extend the functionality of the standard clipboard.
 
 ### 🔠 Tesseract
 Recognizes text from a selected screen area and copies it to the clipboard.  
-Example: 🖼️ => "ABCD"
+Example: 🔠️ => "ABCD"
 
-See more details in [tesseract/readme.md](tesseract/readme.md)
+See more details in [tesseract/README.md](tesseract/readme.md)
 
 ---
 
@@ -16,7 +16,7 @@ See more details in [tesseract/readme.md](tesseract/readme.md)
 Each time you copy text to the clipboard, the content is not overwritten but appended to the end of the string.  
 Example: "Hello" + "World" = "Hello World"
 
-See more details in [ClipboardHistory/readme.md](ClipboardHistory/readme.md)
+See more details in [ClipboardHistory/README.md](ClipboardHistory/readme.md)
 
 ---
 
@@ -24,4 +24,4 @@ See more details in [ClipboardHistory/readme.md](ClipboardHistory/readme.md)
 Transcribes a voice message into text and copies it to the clipboard.  
 Example: 🗣️💬 = "Hello, my name is John..."
 
-See more details in [VoiceToText/readme.md](VoiceToText/readme.md)
+See more details in [VoiceToText/README.md](VoiceToText/readme.md)

@@ -42,35 +42,6 @@ You can use Right-click on the tray icon to access the menu and exit the program
 - Press `CapsLock` + `PrnScr`
 - The script will prompt you to select an area via Snipping Tool.
 - It makes a screenshot and saves it in temp folder
-- Select the language in popup menu
-- OCR will be performed and results saved in system clipboard
-- Press `Ctrl` + `V` to paste the text into Editor
-
-## Notes
-
-- This script stores intermediate files in your system's temp folder.
-- Make sure `snippingtool.exe`, `magick`, and `tesseract` are all callable from the command line.
-
-## License
-
-MIT License. Feel free to modify and share.
-### ⚙️ Optional
-
-- Additional language packs for Tesseract (e.g. `rus`, `ukr`, `deu`)
-- Add `magick` and `tesseract` commands to your environment `PATH`
-
-## Installation
-
-1. Clone or download this repository.
-2. Edit the script if needed to adjust languages or PSM modes.
-3. Double-click `tesseract.ahk` (or run with AutoHotkey v2).
-The programm runs minimized in system tray
-You can use Right-click on the tray icon to access the menu and exit the programm
-
-## Usage (see [demo](https://youtu.be/kWn-IFbZm1k) on YouTube)
-- Press `CapsLock` + `PrnScr`
-- The script will prompt you to select an area via Snipping Tool.
-- It makes a screenshot and saves it in temp folder
 - Select a type of block and a language in popup menu
 - OCR will be performed and results saved in system clipboard
 - Press `Ctrl` + `V` to paste the text into Editor
@@ -83,7 +54,3 @@ You can use Right-click on the tray icon to access the menu and exit the program
 ## License
 
 MIT License. Feel free to modify and share.
-
-## Screenshot
-
-[![Screenshot](img/Screenshot_1.png)](https://youtu.be/kWn-IFbZm1k)
