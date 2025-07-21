@@ -4,7 +4,7 @@ Scripts that extend the functionality of the standard clipboard.
 
 ## 📋 Description
 
-### 🔠 Tesseract
+### 🔠 Tesseract OCR & AutoHotkey Script
 Recognizes text from a selected screen area and copies it to the clipboard.  
 Example: 🔠️ => "ABCD"
 
