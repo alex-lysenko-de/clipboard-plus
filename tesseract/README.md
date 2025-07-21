@@ -59,12 +59,12 @@ MIT License. Feel free to modify and share.
 
 
 ![2](img/Screenshot_2.png)
-
+---
 ![3](img/Screenshot_3.png)
-
+---
 ![4](img/Screenshot_4.png)
-
+---
 ![5](img/Screenshot_5.png)
-
+---
 ![6](img/Screenshot_6.png)
 
