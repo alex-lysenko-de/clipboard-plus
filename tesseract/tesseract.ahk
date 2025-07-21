@@ -4,14 +4,24 @@
 
 screenshotPath := A_Temp . "\screenshot.png"
 resultPath := A_Temp . "\tesseract_result"
-MsgBox(resultPath, "Info")
 logFilePath := A_Temp . "\tesseract_log.txt"
 
 lang := "deu+eng"
 psm := "3"
 preserve := " "
 
-    
+; --- Informational window on first launch ---
+helpStr := "This script is for Optical Character Recognition (OCR) from your screen.`n`n"
+    . "How to use:`n"
+    . "1. Press the key combination: **CapsLock + PrintScreen**`n"
+    . "2. Select a rectangular area on your screen for text recognition.`n"
+    . "3. Choose the recognition mode (PSM) in the menu that appears.`n"
+    . "4. Select the recognition language in the next menu.`n`n"
+    . "The recognized text will be copied to your clipboard and displayed to you."
+
+MsgBox(helpStr,	"OCR Script Information", 64)
+
+
 ; Create the popup menu by adding some items to it.
 LangMenu := Menu()
 ; Create another menu destined to become a submenu of the above menu.
@@ -94,7 +104,7 @@ LangMenuHandler(Item, *) {
         ResText := FileRead(ResultFileName)
         ; Save Text into Clipboard
 		A_Clipboard := resText
-	    MsgBox(ResText, "The text has been copied into Clipboard (Insert: CapsLock+V)")
+	    MsgBox(ResText, "The text has been copied into Clipboard (Insert: CTRL+v)")
 	} else if FileExist(logFilePath) {
 	    FileEncoding ("UTF-8")
         ResText := FileRead(logFilePath)

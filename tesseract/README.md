@@ -22,13 +22,13 @@ Make sure the following tools are installed and added to your system's `PATH`:
 2. **[Tesseract OCR](https://github.com/tesseract-ocr/tesseract)**  
    OCR engine. You can install it via [Tesseract installer for Windows](https://github.com/UB-Mannheim/tesseract/wiki).
 
-3. **[ImageMagick](https://imagemagick.org/script/download.php#windows)**  
-   Required for converting clipboard images to files.
+3. **[Python](https://www.python.org/downloads/windows/)**  
+   Required for creating screenshots.
 
 ### ⚙️ Optional
 
 - Additional language packs for Tesseract (e.g. `rus`, `ukr`, `deu`)
-- Add `magick` and `tesseract` commands to your environment `PATH`
+- Add `python.exe` and `tesseract.exe` commands to your environment `PATH`
 
 ## Installation
 
@@ -49,8 +49,21 @@ You can use Right-click on the tray icon to access the menu and exit the program
 ## Notes
 
 - This script stores intermediate files in your system's temp folder.
-- Make sure `snippingtool.exe`, `magick`, and `tesseract` are all callable from the command line.
+- Make sure `python.exe` and `tesseract.exe` are all callable from the command line.
 
 ## License
 
 MIT License. Feel free to modify and share.
+
+## Screenshots
+
+![1](img/Screenshot_1.png)
+
+![4](img/Screenshot_4.png)
+
+![5](img/Screenshot_5.png)
+
+![6](img/Screenshot_6.png)
+
+![7](img/Screenshot_7.png)
+
