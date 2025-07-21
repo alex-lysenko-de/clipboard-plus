@@ -44,7 +44,7 @@ You can use Right-click on the tray icon to access the menu and exit the program
 - It makes a screenshot and saves it in temp folder
 - Select a type of block and a language in popup menu
 - OCR will be performed and results saved in system clipboard
-- Press `Ctrl` + `V` to paste the text into Editor
+- Press `Ctrl` + `v` to paste the text into Editor
 
 ## Notes
 
@@ -57,13 +57,14 @@ MIT License. Feel free to modify and share.
 
 ## Screenshots
 
-![1](img/Screenshot_1.png)
+
+![2](img/Screenshot_2.png)
+
+![3](img/Screenshot_3.png)
 
 ![4](img/Screenshot_4.png)
 
 ![5](img/Screenshot_5.png)
 
 ![6](img/Screenshot_6.png)
-
-![7](img/Screenshot_7.png)
 
