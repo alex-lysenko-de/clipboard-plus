@@ -1,4 +1,4 @@
-# TOPAS - Tesseract OCR + AutoHotkey Script
+# 🔠 TOPAS  (Tesseract OCR + AutoHotkey Script)
 
 TOPAS is an AutoHotkey v2 script that allows you to capture selected screen areas and perform OCR (Optical Character Recognition) using Tesseract. The script provides a convenient GUI for configuring recognition settings and runs minimized in the system tray.
 
